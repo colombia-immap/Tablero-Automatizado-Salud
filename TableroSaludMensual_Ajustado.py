@@ -33,8 +33,10 @@ df_5w_sector_mes = df_5w[(df_5w['Sector'].isin(sector))&(df_5w['Mes de atención
 #df_5w_sector_mes2 = df_5w[(df_5w['_ Sector']=='Educación')&(df_5w['Mes de atención'] == '03_Marzo')]
 
 #Cargo api
-df_api_ind_mpio  = pd.read_excel("C:/Users/Lisa/Documents/Bases de Python/Bases Actualizables/Ciclo3/API_Consolidado_ciclo_TRES_ GENERAL_27052022 (2).xlsx", sheet_name= "Indicador y Municipio")
-df_api_sect_nac  = pd.read_excel("C:/Users/Lisa/Documents/Bases de Python/Bases Actualizables/Ciclo3/API_Consolidado_ciclo_TRES_ GENERAL_27052022 (2).xlsx", sheet_name= "Sector Nacional")
+df_api_ind_mpio  = pd.read_excel("C:/Users/Lisa/Documents/Bases de Python/Bases Actualizables/Ciclo3/API_Consolidado_ciclo_TRES_ GENERAL_27052022 (2).xlsx",
+                                 sheet_name= "Indicador y Municipio")
+df_api_sect_nac  = pd.read_excel("C:/Users/Lisa/Documents/Bases de Python/Bases Actualizables/Ciclo3/API_Consolidado_ciclo_TRES_ GENERAL_27052022 (2).xlsx", 
+                                 sheet_name= "Sector Nacional")
 df_api_ind_mpio["Full Name"] = df_api_ind_mpio["Departamento"] + df_api_ind_mpio["Municipio"]
 
 df_api_sector_mes = df_api_ind_mpio[(df_api_ind_mpio['Sector'].isin(sector))&(df_api_ind_mpio['Mesdeatención'].isin(mes))]
@@ -129,7 +131,7 @@ muni = muni[['Full Name','mpio']]
 #indicadores
 df_api_sector_mes.columns
 
-ind1=df_api_sector_mes.loc[df_api_sector_mes['Indicador'] == 'Número de refugiados y migrantes beneficiándose de consultas de atención primaria de salud',  'bene_mensuales'].sum()
+ind1=df_api_sector_mes.loc[df_api_sector_mes['Indicador'] == 'Número de refugiados y migrantes beneficiándose de consultas de atención primaria de salud','bene_mensuales'].sum()
 ind2=df_api_sector_mes.loc[df_api_sector_mes['Indicador'] == 'Número de dosis de vacunas administradas a los refugiados y migrantes de Venezuela según ciclo de vida y calendario nacional', 'bene_mensuales'].sum()
 ind3=df_api_sector_mes.loc[df_api_sector_mes['Indicador'] == 'Número de refugiados y migrantes de Venezuela que recibieron insumos', 'bene_mensuales'].sum()
 
